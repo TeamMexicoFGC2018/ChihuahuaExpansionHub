@@ -78,6 +78,15 @@ public class Omni4Motores extends LinearOpMode {
                robot.eolico.setPower(0);
            }
 
+           if(gamepad1.x){
+               robot.recogedor.setPower(1);
+           } else if (gamepad1.y){
+               robot.recogedor.setPower(-1);
+           } else {
+               robot.recogedor.setPower(0);
+           }
+
+
             Mecanum(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
         }
 
