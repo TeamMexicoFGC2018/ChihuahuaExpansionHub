@@ -30,6 +30,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -57,6 +58,7 @@ public class HardwareChassisHerman
     public DcMotor frontRightDrive  = null;
     public DcMotor backRightDrive  = null;
     public DcMotor eolico  = null;
+    public DcMotor recogedor  = null;
 
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
@@ -78,12 +80,14 @@ public class HardwareChassisHerman
         frontRightDrive  = hwMap.get(DcMotor.class, "FR");
         backRightDrive  = hwMap.get(DcMotor.class, "BR");
         eolico = hwMap.get(DcMotor.class, "EO");
+        recogedor = hwMap.get(DcMotor.class, "RE");
 
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         frontRightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         eolico.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        recogedor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
 
         // Set all motors to zero power
         frontLeftDrive.setPower(0);
@@ -91,6 +95,7 @@ public class HardwareChassisHerman
         frontRightDrive.setPower(0);
         backRightDrive.setPower(0);
         eolico.setPower(0);
+        recogedor.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -99,11 +104,12 @@ public class HardwareChassisHerman
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         eolico.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        recogedor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
     }
     public void normalize(double[] wheelSpeeds)
     {
         double maxMagnitude = Math.abs(wheelSpeeds[0]);
-
         for (int i = 1; i < wheelSpeeds.length; i++)
         {
             double magnitude = Math.abs(wheelSpeeds[i]);
