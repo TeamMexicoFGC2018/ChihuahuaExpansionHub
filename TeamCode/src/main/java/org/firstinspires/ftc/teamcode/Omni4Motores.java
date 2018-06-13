@@ -72,7 +72,7 @@ public class Omni4Motores extends LinearOpMode {
 
            if(gamepad1.a){
                robot.eolico.setPower(1);
-           } else if (gamepad1.b) {
+           } else if (gamepad1.y) {
                robot.eolico.setPower(-1);
            } else {
                robot.eolico.setPower(0);
@@ -80,7 +80,7 @@ public class Omni4Motores extends LinearOpMode {
 
            if(gamepad1.x){
                robot.recogedor.setPower(1);
-           } else if (gamepad1.y){
+           } else if (gamepad1.b){
                robot.recogedor.setPower(-1);
            } else {
                robot.recogedor.setPower(0);
