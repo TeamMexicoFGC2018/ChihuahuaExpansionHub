@@ -70,7 +70,7 @@ public class Omni4Motores extends LinearOpMode {
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
 
-           if(gamepad1.a){
+           if(gamepad1.x){
                robot.eolico.setPower(1);
            } else if (gamepad1.y) {
                robot.eolico.setPower(-1);
@@ -78,7 +78,7 @@ public class Omni4Motores extends LinearOpMode {
                robot.eolico.setPower(0);
            }
 
-           if(gamepad1.x){
+           if(gamepad1.a){
                robot.recogedor.setPower(1);
            } else if (gamepad1.b){
                robot.recogedor.setPower(-1);
