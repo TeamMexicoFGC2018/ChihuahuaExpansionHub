@@ -33,6 +33,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.hardware.Servo;
 
 /**
  * This is NOT an opmode.
@@ -59,6 +60,13 @@ public class HardwareChassisBerdeja
     public DcMotor backRightDrive  = null;
     public DcMotor recogedorLeft  = null;
     public DcMotor recogedorRight  = null;
+    public Servo lift1 = null;
+    public Servo lift2 = null;
+
+    public final static double Lift2_Home = 0.2;
+    public final static double Lift1_Home = 0.2;
+
+
 
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
@@ -128,6 +136,11 @@ public class HardwareChassisBerdeja
                 wheelSpeeds[i] /= maxMagnitude;
             }
         }
+
+        lift1 = hwMap.get(Servo.class, "L1");
+        lift2 = hwMap.get(Servo.class, "L2");
+        lift1.setPosition(Lift1_Home);
+        lift2.setPosition(Lift2_Home);
     }
  }
 
