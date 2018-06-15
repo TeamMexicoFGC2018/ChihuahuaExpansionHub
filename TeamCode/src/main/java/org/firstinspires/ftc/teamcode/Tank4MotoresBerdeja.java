@@ -93,6 +93,7 @@ public class Tank4MotoresBerdeja extends OpMode {
         double left;
         double right;
         double max;
+        double angle = 0.0;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         drive = -gamepad1.left_stick_y;
@@ -120,7 +121,6 @@ public class Tank4MotoresBerdeja extends OpMode {
             robot.recogedorLeft.setPower(0);
             robot.recogedorRight.setPower(0);
         }
-
 
 
 
