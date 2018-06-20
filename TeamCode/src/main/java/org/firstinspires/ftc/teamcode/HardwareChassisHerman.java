@@ -29,6 +29,7 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -59,6 +60,13 @@ public class HardwareChassisHerman
     public DcMotor backRightDrive  = null;
     public DcMotor eolico  = null;
     public DcMotor recogedor  = null;
+    public CRServo LiftL1 = null;
+    public CRServo LiftL2 = null;
+    public CRServo LiftL3 = null;
+    public CRServo LiftL4 = null;
+    public CRServo LiftL5 = null;
+    public CRServo LiftL6 = null;
+
 
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
@@ -81,6 +89,13 @@ public class HardwareChassisHerman
         backRightDrive  = hwMap.get(DcMotor.class, "BR");
         eolico = hwMap.get(DcMotor.class, "EO");
         recogedor = hwMap.get(DcMotor.class, "RE");
+        LiftL1 = hwMap.get(CRServo.class, "L1");
+        LiftL2 = hwMap.get(CRServo.class, "L2");
+        LiftL3 = hwMap.get(CRServo.class, "L3");
+        LiftL4 = hwMap.get(CRServo.class, "L4");
+        LiftL5 = hwMap.get(CRServo.class, "L5");
+        LiftL6 = hwMap.get(CRServo.class, "L6");
+
 
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
@@ -96,6 +111,13 @@ public class HardwareChassisHerman
         backRightDrive.setPower(0);
         eolico.setPower(0);
         recogedor.setPower(0);
+        LiftL1.setPower(.5);
+        LiftL2.setPower(.5);
+        LiftL3.setPower(.5);
+        LiftL4.setPower(.5);
+        LiftL5.setPower(.5);
+        LiftL6.setPower(.5);
+
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
