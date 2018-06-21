@@ -66,6 +66,7 @@ public class HardwareChassisHerman
     public CRServo LiftL4 = null;
     public CRServo LiftL5 = null;
     public CRServo LiftL6 = null;
+    public DcMotor Elevador = null;
 
 
     /* local OpMode members. */
@@ -95,6 +96,7 @@ public class HardwareChassisHerman
         LiftL4 = hwMap.get(CRServo.class, "L4");
         LiftL5 = hwMap.get(CRServo.class, "L5");
         LiftL6 = hwMap.get(CRServo.class, "L6");
+        Elevador = hwMap.get(DcMotor.class, "EL");
 
 
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
@@ -103,6 +105,7 @@ public class HardwareChassisHerman
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         eolico.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         recogedor.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        Elevador.setDirection(DcMotor.Direction.FORWARD);
 
         // Set all motors to zero power
         frontLeftDrive.setPower(0);
@@ -111,12 +114,13 @@ public class HardwareChassisHerman
         backRightDrive.setPower(0);
         eolico.setPower(0);
         recogedor.setPower(0);
-        LiftL1.setPower(.5);
-        LiftL2.setPower(.5);
-        LiftL3.setPower(.5);
-        LiftL4.setPower(.5);
-        LiftL5.setPower(.5);
-        LiftL6.setPower(.5);
+        LiftL1.setPower(0);
+        LiftL2.setPower(0);
+        LiftL3.setPower(0);
+        LiftL4.setPower(0);
+        LiftL5.setPower(0);
+        LiftL6.setPower(0);
+        Elevador.setPower(0);
 
 
         // Set all motors to run without encoders.
@@ -127,6 +131,7 @@ public class HardwareChassisHerman
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         eolico.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         recogedor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        Elevador.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
     public void normalize(double[] wheelSpeeds)
