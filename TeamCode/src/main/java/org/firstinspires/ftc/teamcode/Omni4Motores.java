@@ -110,6 +110,14 @@ public class Omni4Motores extends LinearOpMode {
            }
 
 
+            if (gamepad1.dpad_down){
+               robot.Elevador.setPower(1);
+            } else if (gamepad1.dpad_up){
+               robot.Elevador.setPower(-1);
+            } else{
+               robot.Elevador.setPower(0);
+            }
+
             Mecanum(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
         }
 
