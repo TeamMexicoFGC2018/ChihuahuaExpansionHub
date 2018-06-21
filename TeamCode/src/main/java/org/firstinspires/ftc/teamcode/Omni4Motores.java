@@ -87,26 +87,26 @@ public class Omni4Motores extends LinearOpMode {
            }
 
            if(gamepad1.left_bumper){
+               robot.LiftL1.setPower(-1);
+               robot.LiftL2.setPower(-1);
+               robot.LiftL3.setPower(-1);
+               robot.LiftL4.setPower(1);
+               robot.LiftL5.setPower(1);
+               robot.LiftL6.setPower(1);
+           } else if(gamepad1.right_bumper){
+               robot.LiftL1.setPower(1);
+               robot.LiftL2.setPower(1);
+               robot.LiftL3.setPower(1);
+               robot.LiftL4.setPower(-1);
+               robot.LiftL5.setPower(-1);
+               robot.LiftL6.setPower(-1);
+           } else {
                robot.LiftL1.setPower(0);
                robot.LiftL2.setPower(0);
                robot.LiftL3.setPower(0);
                robot.LiftL4.setPower(0);
                robot.LiftL5.setPower(0);
                robot.LiftL6.setPower(0);
-           } else if(gamepad1.right_bumper){
-               robot.LiftL1.setPower(1);
-               robot.LiftL2.setPower(1);
-               robot.LiftL3.setPower(1);
-               robot.LiftL4.setPower(1);
-               robot.LiftL5.setPower(1);
-               robot.LiftL6.setPower(1);
-           } else {
-               robot.LiftL1.setPower(.5);
-               robot.LiftL2.setPower(.5);
-               robot.LiftL3.setPower(.5);
-               robot.LiftL4.setPower(.5);
-               robot.LiftL5.setPower(.5);
-               robot.LiftL6.setPower(.5);
            }
 
 
