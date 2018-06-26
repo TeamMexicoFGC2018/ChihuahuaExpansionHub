@@ -33,6 +33,7 @@ import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
@@ -66,6 +67,7 @@ public class HardwareChassisHerman
     public CRServo LiftL4 = null;
     public CRServo LiftL5 = null;
     public CRServo LiftL6 = null;
+    public Servo eject = null;
     public DcMotor Elevador = null;
 
 
@@ -97,6 +99,7 @@ public class HardwareChassisHerman
         LiftL5 = hwMap.get(CRServo.class, "L5");
         LiftL6 = hwMap.get(CRServo.class, "L6");
         Elevador = hwMap.get(DcMotor.class, "EL");
+        eject = hwMap.get(Servo.class, "EJ");
 
 
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
@@ -121,6 +124,7 @@ public class HardwareChassisHerman
         LiftL5.setPower(0);
         LiftL6.setPower(0);
         Elevador.setPower(0);
+        eject.setPosition(0);
 
 
         // Set all motors to run without encoders.
