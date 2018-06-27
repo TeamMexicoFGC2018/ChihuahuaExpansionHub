@@ -123,6 +123,16 @@ public class Tank4MotoresBerdeja extends OpMode {
         }
 
 
+        if (gamepad1.dpad_up) {
+            robot.elevador.setPower(1);
+
+        } else if (gamepad1.dpad_down){
+            robot.elevador.setPower(-1);
+
+        } else {
+            robot.elevador.setPower(0);
+        }
+
 
         // Output the safe vales to the motor drives.
         robot.frontLeftDrive.setPower(left);
