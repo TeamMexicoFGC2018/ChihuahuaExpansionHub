@@ -62,6 +62,9 @@ public class HardwareChassisBerdeja
     public DcMotor recogedorLeft  = null;
     public DcMotor recogedorRight  = null;
     public DcMotor elevador = null;
+    public Servo grip = null;
+    public Servo lift = null;
+    public CRServo eolico = null;
 
 
     /* local OpMode members. */
@@ -86,6 +89,8 @@ public class HardwareChassisBerdeja
         recogedorRight = hwMap.get(DcMotor.class, "RR");
         recogedorLeft  = hwMap.get(DcMotor.class, "RL");
         elevador = hwMap.get(DcMotor.class,"EL");
+        lift = hwMap.get(Servo.class,"LF");
+        grip = hwMap.get(Servo.class,"GR");
 
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
@@ -103,6 +108,7 @@ public class HardwareChassisBerdeja
         recogedorRight.setPower(0);
         recogedorLeft.setPower(0);
         elevador.setPower(0);
+        eolico.setPower(0);
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
