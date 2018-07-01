@@ -93,7 +93,7 @@ public class ExperimentoAdry extends OpMode {
         double left;
         double right;
         double max;
-        int back = gamepad1.start ? 1 : 0;
+        int back = gamepad1.back ? 1 : 0;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         drive = -gamepad1.left_stick_y;
