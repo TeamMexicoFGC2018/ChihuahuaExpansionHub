@@ -90,6 +90,7 @@ public class HardwareExperimento
         elevador = hwMap.get(DcMotor.class,"EL");
         lift = hwMap.get(Servo.class,"LF");
         grip = hwMap.get(Servo.class,"GR");
+        eolico = hwMap.get(CRServo.class, "EO");
 
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors

@@ -138,11 +138,17 @@ public class ExperimentoBerdeja extends OpMode {
             //La parte cool del morro este, Santi
        if (gamepad2.dpad_up){
             robot.elevador.setTargetPosition(864);
+           while(robot.elevador.isBusy() ) {
+               //Loop body can be empty
+           }
            robot.elevador.setPower(0);
 
 
        } else if (gamepad2.dpad_down){
            robot.elevador.setTargetPosition(0);
+           while(robot.elevador.isBusy() ) {
+               //Loop body can be empty
+           }
            robot.elevador.setPower(0);
 
        }
