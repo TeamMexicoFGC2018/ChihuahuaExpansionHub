@@ -111,45 +111,50 @@ public class ExperimentoAdry extends OpMode {
             right /= max;
         }
 
-        if(gamepad1.a) {
-            robot.recogedorLeft.setPower(1);
-            robot.recogedorRight.setPower(1);
-        } else if (gamepad1.b){
-            robot.recogedorLeft.setPower(-1);
-            robot.recogedorRight.setPower(-1);
-        } else {
-            robot.recogedorLeft.setPower(0);
-            robot.recogedorRight.setPower(0);
-        }
-
-
-        if (gamepad1.dpad_up) {
-            robot.elevador.setPower(1);
-
-        } else if (gamepad1.dpad_down){
-            robot.elevador.setPower(-1);
-
-        } else {
-            robot.elevador.setPower(0);
-        }
-
-            //La parte cool del morro este, Santi
-       if (gamepad2.dpad_up){
-            robot.elevador.setTargetPosition(864);
-           robot.elevador.setPower(0);
-
-
-       } else if (gamepad2.dpad_down){
-           robot.elevador.setTargetPosition(0);
-           robot.elevador.setPower(0);
-
-       }
         // bye bye Santi.
 
         // Output the safe vales to the motor drives.
 
         switch (back){
             case 1:
+                telemetry.addData("back boolean",  "%.2f", gamepad1.back);
+                telemetry.addData("back int",  "%.2f", back);
+                telemetry.update();
+
+                if(gamepad1.a) {
+                    robot.recogedorLeft.setPower(1);
+                    robot.recogedorRight.setPower(1);
+                } else if (gamepad1.b){
+                    robot.recogedorLeft.setPower(-1);
+                    robot.recogedorRight.setPower(-1);
+                } else {
+                    robot.recogedorLeft.setPower(0);
+                    robot.recogedorRight.setPower(0);
+                }
+
+
+                if (gamepad1.dpad_up) {
+                    robot.elevador.setPower(1);
+
+                } else if (gamepad1.dpad_down){
+                    robot.elevador.setPower(-1);
+
+                } else {
+                    robot.elevador.setPower(0);
+                }
+
+                //La parte cool del morro este, Santi
+                if (gamepad2.dpad_up){
+                    robot.elevador.setTargetPosition(864);
+                    robot.elevador.setPower(0);
+
+
+                } else if (gamepad2.dpad_down){
+                    robot.elevador.setTargetPosition(0);
+                    robot.elevador.setPower(0);
+
+                }
+
                 gamepad1.start = !gamepad1.start;
                 robot.frontLeftDrive.setPower(left);
                 robot.backLeftDrive.setPower(left);
@@ -157,7 +162,43 @@ public class ExperimentoAdry extends OpMode {
                 robot.backRightDrive.setPower(right);
                 break;
             case 2:
-                gamepad1.start = !gamepad1.start;
+                telemetry.addData("back boolean",  "%.2f", gamepad1.back);
+                telemetry.addData("back int",  "%.2f", back);
+                telemetry.update();
+                if(gamepad1.a) {
+                    robot.recogedorLeft.setPower(1);
+                    robot.recogedorRight.setPower(1);
+                } else if (gamepad1.b){
+                    robot.recogedorLeft.setPower(-1);
+                    robot.recogedorRight.setPower(-1);
+                } else {
+                    robot.recogedorLeft.setPower(0);
+                    robot.recogedorRight.setPower(0);
+                }
+
+
+                if (gamepad1.dpad_up) {
+                    robot.elevador.setPower(1);
+
+                } else if (gamepad1.dpad_down){
+                    robot.elevador.setPower(-1);
+
+                } else {
+                    robot.elevador.setPower(0);
+                }
+
+                //La parte cool del morro este, Santi
+                if (gamepad2.dpad_up){
+                    robot.elevador.setTargetPosition(864);
+                    robot.elevador.setPower(0);
+
+
+                } else if (gamepad2.dpad_down){
+                    robot.elevador.setTargetPosition(0);
+                    robot.elevador.setPower(0);
+
+                }
+
                 robot.frontLeftDrive.setPower(-left);
                 robot.backLeftDrive.setPower(-left);
                 robot.frontRightDrive.setPower(-right);
@@ -169,7 +210,6 @@ public class ExperimentoAdry extends OpMode {
 
         telemetry.addData("left",  "%.2f", left);
         telemetry.addData("right", "%.2f", right);
-
 
         telemetry.update();
     }
