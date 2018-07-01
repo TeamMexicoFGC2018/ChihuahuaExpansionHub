@@ -52,7 +52,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class ExperimentoBerdeja extends OpMode {
 
     /* Declare OpMode members. */
-    HardwareChassisBerdeja robot       = new HardwareChassisBerdeja(); // use the class created to define a Pushbot's hardware
+    HardwareExperimento robot       = new HardwareExperimento(); // use the class created to define a Pushbot's hardware
                                                          // could also use HardwarePushbotMatrix class.
 
     /*

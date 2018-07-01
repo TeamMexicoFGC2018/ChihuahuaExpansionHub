@@ -29,12 +29,11 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.CRServo;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
  * This is NOT an opmode.
@@ -52,7 +51,7 @@ import com.qualcomm.robotcore.hardware.CRServo;
  * Servo channel:  Servo to open left claw:  "left_hand"
  * Servo channel:  Servo to open right claw: "right_hand"
  */
-public class HardwareChassisBerdeja
+public class HardwareExperimento
 {
     /* Public OpMode members. */
     public DcMotor frontLeftDrive   = null;
@@ -72,7 +71,7 @@ public class HardwareChassisBerdeja
     private ElapsedTime period  = new ElapsedTime();
 
     /* Constructor */
-    public HardwareChassisBerdeja(){
+    public HardwareExperimento(){
 
     }
 
@@ -118,7 +117,10 @@ public class HardwareChassisBerdeja
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         recogedorRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         recogedorLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        elevador.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        elevador.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        elevador.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+
     }
     public void normalize(double[] wheelSpeeds)
     {
