@@ -47,9 +47,9 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Tank 4 llantas Berdeja", group="Teleop")
+@TeleOp(name="experimento 01", group="Teleop")
 //@Disabled
-public class Tank4MotoresBerdeja extends OpMode {
+public class ExperimentoBerdeja extends OpMode {
 
     /* Declare OpMode members. */
     HardwareChassisBerdeja robot       = new HardwareChassisBerdeja(); // use the class created to define a Pushbot's hardware
@@ -135,25 +135,16 @@ public class Tank4MotoresBerdeja extends OpMode {
 
 
             //La parte cool del morro este, Santi
-        if (gamepad2.a){
-            robot.grip.setPosition(0);
-        } else if (gamepad2.b) {
-            robot.grip.setPosition(1);
-        }
+       if (gamepad2.dpad_up){
+            robot.elevador.setTargetPosition(864);
+           robot.elevador.setPower(0);
 
-        if (gamepad2.dpad_up){
-            robot.lift.setPosition(1);
-        } else if (gamepad2.dpad_down) {
-            robot.lift.setPosition(0);
-        }
 
-        if (gamepad2.x){
-            robot.eolico.setPower(1);
-        } else  if (gamepad2.y) {
-            robot.eolico.setPower(-1);
-        } else {
-            robot.eolico.setPower(0);
-        }
+       } else if (gamepad2.dpad_down){
+           robot.elevador.setTargetPosition(0);
+           robot.elevador.setPower(0);
+
+       }
         // bye bye Santi.
 
         // Output the safe vales to the motor drives.

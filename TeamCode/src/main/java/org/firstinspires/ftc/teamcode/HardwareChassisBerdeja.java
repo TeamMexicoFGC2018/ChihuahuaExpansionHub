@@ -118,7 +118,8 @@ public class HardwareChassisBerdeja
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         recogedorRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         recogedorLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        elevador.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        elevador.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        elevador.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
     public void normalize(double[] wheelSpeeds)
     {
