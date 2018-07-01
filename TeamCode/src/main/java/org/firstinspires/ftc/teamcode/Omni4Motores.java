@@ -60,6 +60,8 @@ public class Omni4Motores extends LinearOpMode {
     public void runOpMode() {
         robot.init(hardwareMap);
 
+        double servop = robot.eject.getPosition();
+
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Fucking", "Nigger");    //
         telemetry.update();
@@ -127,7 +129,7 @@ public class Omni4Motores extends LinearOpMode {
             Mecanum(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
         }
 
-
+            telemetry.addData("servo",  "pos = %.2f", servop);
             telemetry.update();
 
         }
