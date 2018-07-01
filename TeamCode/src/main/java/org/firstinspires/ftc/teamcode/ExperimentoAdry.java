@@ -93,7 +93,7 @@ public class ExperimentoAdry extends OpMode {
         double left;
         double right;
         double max;
-        double angle = 0.0;
+        int back = gamepad1.start ? 1 : 0;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         drive = -gamepad1.left_stick_y;
@@ -133,7 +133,6 @@ public class ExperimentoAdry extends OpMode {
             robot.elevador.setPower(0);
         }
 
-
             //La parte cool del morro este, Santi
        if (gamepad2.dpad_up){
             robot.elevador.setTargetPosition(864);
@@ -148,10 +147,23 @@ public class ExperimentoAdry extends OpMode {
         // bye bye Santi.
 
         // Output the safe vales to the motor drives.
-        robot.frontLeftDrive.setPower(left);
-        robot.backLeftDrive.setPower(left);
-        robot.frontRightDrive.setPower(right);
-        robot.backRightDrive.setPower(right);
+
+        switch (back){
+            case 1:
+                gamepad1.start = !gamepad1.start;
+                robot.frontLeftDrive.setPower(left);
+                robot.backLeftDrive.setPower(left);
+                robot.frontRightDrive.setPower(right);
+                robot.backRightDrive.setPower(right);
+                break;
+            case 2:
+                gamepad1.start = !gamepad1.start;
+                robot.frontLeftDrive.setPower(-left);
+                robot.backLeftDrive.setPower(-left);
+                robot.frontRightDrive.setPower(-right);
+                robot.backRightDrive.setPower(-right);
+                break;
+        }
 
         // Send telemetry message to signify robot running;
 
