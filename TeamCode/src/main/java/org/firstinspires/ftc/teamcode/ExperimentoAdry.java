@@ -93,7 +93,8 @@ public class ExperimentoAdry extends OpMode {
         double left;
         double right;
         double max;
-        int back = gamepad1.back ? 1 : 0;
+        int back = 0;
+        int dleft  = gamepad1.dpad_left ? 1 : 0;;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         drive = -gamepad1.left_stick_y;
@@ -115,96 +116,70 @@ public class ExperimentoAdry extends OpMode {
 
         // Output the safe vales to the motor drives.
 
+        if(gamepad1.a) {
+            robot.recogedorLeft.setPower(1);
+            robot.recogedorRight.setPower(1);
+        } else if (gamepad1.b){
+            robot.recogedorLeft.setPower(-1);
+            robot.recogedorRight.setPower(-1);
+        } else {
+            robot.recogedorLeft.setPower(0);
+            robot.recogedorRight.setPower(0);
+        }
+
+
+        if (gamepad1.dpad_up) {
+            robot.elevador.setPower(1);
+
+        } else if (gamepad1.dpad_down){
+            robot.elevador.setPower(-1);
+
+        } else {
+            robot.elevador.setPower(0);
+        }
+
+        //La parte cool del morro este, Santi
+        if (gamepad2.dpad_up){
+            robot.elevador.setTargetPosition(864);
+            robot.elevador.setPower(0);
+
+
+        } else if (gamepad2.dpad_down){
+            robot.elevador.setTargetPosition(0);
+            robot.elevador.setPower(0);
+
+        }
+
+        if (dleft == 0){
+            back = 0;
+            dleft = 0;
+        } else{
+            back = 1;
+            dleft = 1;
+        }
+
+
         switch (back){
-            case 1:
-                telemetry.addData("back boolean",  "%.2f", gamepad1.back);
-                telemetry.addData("back int",  "%.2f", back);
-                telemetry.update();
-
-                if(gamepad1.a) {
-                    robot.recogedorLeft.setPower(1);
-                    robot.recogedorRight.setPower(1);
-                } else if (gamepad1.b){
-                    robot.recogedorLeft.setPower(-1);
-                    robot.recogedorRight.setPower(-1);
-                } else {
-                    robot.recogedorLeft.setPower(0);
-                    robot.recogedorRight.setPower(0);
-                }
-
-
-                if (gamepad1.dpad_up) {
-                    robot.elevador.setPower(1);
-
-                } else if (gamepad1.dpad_down){
-                    robot.elevador.setPower(-1);
-
-                } else {
-                    robot.elevador.setPower(0);
-                }
-
-                //La parte cool del morro este, Santi
-                if (gamepad2.dpad_up){
-                    robot.elevador.setTargetPosition(864);
-                    robot.elevador.setPower(0);
-
-
-                } else if (gamepad2.dpad_down){
-                    robot.elevador.setTargetPosition(0);
-                    robot.elevador.setPower(0);
-
-                }
-
-                gamepad1.start = !gamepad1.start;
+            case 0:
+                //telemetry.addData("back int",  "%.2i", back);
                 robot.frontLeftDrive.setPower(left);
                 robot.backLeftDrive.setPower(left);
                 robot.frontRightDrive.setPower(right);
                 robot.backRightDrive.setPower(right);
+
                 break;
-            case 2:
-                telemetry.addData("back boolean",  "%.2f", gamepad1.back);
-                telemetry.addData("back int",  "%.2f", back);
-                telemetry.update();
-                if(gamepad1.a) {
-                    robot.recogedorLeft.setPower(1);
-                    robot.recogedorRight.setPower(1);
-                } else if (gamepad1.b){
-                    robot.recogedorLeft.setPower(-1);
-                    robot.recogedorRight.setPower(-1);
-                } else {
-                    robot.recogedorLeft.setPower(0);
-                    robot.recogedorRight.setPower(0);
-                }
-
-
-                if (gamepad1.dpad_up) {
-                    robot.elevador.setPower(1);
-
-                } else if (gamepad1.dpad_down){
-                    robot.elevador.setPower(-1);
-
-                } else {
-                    robot.elevador.setPower(0);
-                }
-
-                //La parte cool del morro este, Santi
-                if (gamepad2.dpad_up){
-                    robot.elevador.setTargetPosition(864);
-                    robot.elevador.setPower(0);
-
-
-                } else if (gamepad2.dpad_down){
-                    robot.elevador.setTargetPosition(0);
-                    robot.elevador.setPower(0);
-
-                }
+            case 1:
+               // telemetry.addData("back int",  "%.2i", back);
 
                 robot.frontLeftDrive.setPower(-left);
                 robot.backLeftDrive.setPower(-left);
                 robot.frontRightDrive.setPower(-right);
                 robot.backRightDrive.setPower(-right);
+
+
                 break;
         }
+       // gamepad1.back = !gamepad1.back;
 
         // Send telemetry message to signify robot running;
 
