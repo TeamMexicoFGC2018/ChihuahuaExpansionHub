@@ -123,6 +123,12 @@ public class Tank4MotoresBerdeja extends OpMode {
         }
 
 
+        if (gamepad1.y){
+            robot.puerta.setPosition(1);
+        } else if (gamepad1.x){
+            robot.puerta.setPosition(0);
+        }
+
         if (gamepad1.dpad_up) {
             robot.elevador.setPower(1);
 

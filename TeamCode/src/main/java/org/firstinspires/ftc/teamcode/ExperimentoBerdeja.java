@@ -112,6 +112,13 @@ public class ExperimentoBerdeja extends OpMode {
             right /= max;
         }
 
+        if (gamepad1.dpad_right){
+
+
+
+
+
+
         if(gamepad1.a) {
             robot.recogedorLeft.setPower(1);
             robot.recogedorRight.setPower(1);

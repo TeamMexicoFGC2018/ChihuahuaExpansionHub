@@ -65,6 +65,7 @@ public class HardwareChassisBerdeja
     public Servo grip = null;
     public Servo lift = null;
     public CRServo eolico = null;
+    public Servo  puerta = null;
 
 
     /* local OpMode members. */
@@ -92,6 +93,8 @@ public class HardwareChassisBerdeja
         lift = hwMap.get(Servo.class,"LF");
         grip = hwMap.get(Servo.class,"GR");
         eolico = hwMap.get(CRServo.class, "EO");
+        puerta = hwMap.get(Servo.class,"PU");
+
 
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
