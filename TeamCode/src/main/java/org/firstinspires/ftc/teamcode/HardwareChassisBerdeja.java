@@ -95,7 +95,6 @@ public class HardwareChassisBerdeja
         eolico = hwMap.get(CRServo.class, "EO");
         puerta = hwMap.get(Servo.class,"PU");
 
-
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         frontRightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
