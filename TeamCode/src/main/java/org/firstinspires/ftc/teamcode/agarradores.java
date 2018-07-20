@@ -29,7 +29,6 @@
 
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -48,12 +47,12 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Tank 4 llantas Chassis", group="Teleop")
-@Disabled
-public class Tank4Motores extends OpMode {
+@TeleOp(name="este mero pa pruebas", group="Teleop")
+//@Disabled
+public class agarradores extends OpMode {
 
     /* Declare OpMode members. */
-    HardwareChassis4Motores robot       = new HardwareChassis4Motores(); // use the class created to define a Pushbot's hardware
+    hardwareExperimental robot       = new hardwareExperimental(); // use the class created to define a Pushbot's hardware
                                                          // could also use HardwarePushbotMatrix class.
 
     /*
@@ -94,10 +93,11 @@ public class Tank4Motores extends OpMode {
         double left;
         double right;
         double max;
+        double angle = 0.0;
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
-        drive = -gamepad1.left_stick_y;
-        turn  =  gamepad1.right_stick_x;
+        drive = gamepad1.left_stick_y;
+        turn  =  -gamepad1.right_stick_x;
 
         // Combine drive and turn for blended motion.
         left  = drive + turn;
@@ -110,6 +110,59 @@ public class Tank4Motores extends OpMode {
             left /= max;
             right /= max;
         }
+
+        if(gamepad1.a) {
+            robot.recogedorLeft.setPower(1);
+            robot.recogedorRight.setPower(1);
+            robot.llantaL.setPower(-1);
+            robot.llantaR.setPower(1);
+
+
+        } else if (gamepad1.b){
+            robot.recogedorLeft.setPower(-1);
+            robot.recogedorRight.setPower(-1);
+            robot.llantaR.setPower(-1);
+            robot.llantaL.setPower(1);
+
+        } else {
+            robot.recogedorLeft.setPower(0);
+            robot.recogedorRight.setPower(0);
+            robot.llantaL.setPower(0);
+            robot.llantaR.setPower(0);
+        }
+
+
+        if (gamepad1.y){
+            robot.puerta.setPosition(1);
+        } else if (gamepad1.x){
+            robot.puerta.setPosition(0);
+        }
+
+
+
+            //La parte cool del morro este, Santi
+        if (gamepad2.a){
+            robot.grip.setPosition(0);
+        } else if (gamepad2.b) {
+            robot.grip.setPosition(1);
+        }
+
+        if (gamepad2.dpad_up){
+            robot.lift.setPower(1);
+        } else if (gamepad2.dpad_down) {
+            robot.lift.setPower(-1);
+        } else {
+            robot.lift.setPower(0);
+        }
+
+        if (gamepad2.x){
+            robot.eolico.setPower(1);
+        } else  if (gamepad2.y) {
+            robot.eolico.setPower(-1);
+        } else {
+            robot.eolico.setPower(0);
+        }
+        // bye bye Santi.
 
         // Output the safe vales to the motor drives.
         robot.frontLeftDrive.setPower(left);

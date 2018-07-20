@@ -29,8 +29,10 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 /**
@@ -49,20 +51,33 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Servo channel:  Servo to open left claw:  "left_hand"
  * Servo channel:  Servo to open right claw: "right_hand"
  */
-public class HardwareChassis4Motores
+public class hardwareExperimental
 {
     /* Public OpMode members. */
     public DcMotor frontLeftDrive   = null;
     public DcMotor backLeftDrive   = null;
     public DcMotor frontRightDrive  = null;
     public DcMotor backRightDrive  = null;
+    public DcMotor recogedorLeft  = null;
+    public DcMotor recogedorRight  = null;
+    public Servo grip = null;
+    public CRServo lift = null;
+    public CRServo eolico = null;
+    public Servo puerta = null;
+    public DcMotor llantaL = null;
+    public DcMotor llantaR = null;
+
+
+
+
+
 
     /* local OpMode members. */
     HardwareMap hwMap           =  null;
     private ElapsedTime period  = new ElapsedTime();
 
     /* Constructor */
-    public HardwareChassis4Motores(){
+    public hardwareExperimental(){
 
     }
 
@@ -76,17 +91,39 @@ public class HardwareChassis4Motores
         backLeftDrive  = hwMap.get(DcMotor.class, "BL");
         frontRightDrive  = hwMap.get(DcMotor.class, "FR");
         backRightDrive  = hwMap.get(DcMotor.class, "BR");
+        recogedorRight = hwMap.get(DcMotor.class, "RR");
+        recogedorLeft  = hwMap.get(DcMotor.class, "RL");
+        lift = hwMap.get(CRServo.class,"LF");
+        grip = hwMap.get(Servo.class,"GR");
+        eolico = hwMap.get(CRServo.class, "EO");
+        puerta = hwMap.get(Servo.class,"PU");
+        llantaL = hwMap.get(DcMotor.class, "LL");
+        llantaR = hwMap.get(DcMotor.class, "LR");
+
+
+
 
         frontLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         backLeftDrive.setDirection(DcMotor.Direction.FORWARD); // Set to REVERSE if using AndyMark motors
         frontRightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
         backRightDrive.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        recogedorLeft.setDirection(DcMotor.Direction.REVERSE);// Set to FORWARD if using AndyMark motors
+        recogedorRight.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        llantaR.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
+        llantaL.setDirection(DcMotor.Direction.FORWARD);// Set to FORWARD if using AndyMark motors
 
         // Set all motors to zero power
         frontLeftDrive.setPower(0);
         backLeftDrive.setPower(0);
         frontRightDrive.setPower(0);
         backRightDrive.setPower(0);
+        recogedorRight.setPower(0);
+        recogedorLeft.setPower(0);
+        eolico.setPower(0);
+        lift.setPower(0);
+        llantaL.setPower(0);
+        llantaR.setPower(0);
+
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
@@ -94,7 +131,10 @@ public class HardwareChassis4Motores
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
+        recogedorRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        recogedorLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        llantaR.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        llantaL.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
     public void normalize(double[] wheelSpeeds)
     {
@@ -117,6 +157,8 @@ public class HardwareChassis4Motores
                 wheelSpeeds[i] /= maxMagnitude;
             }
         }
+
+
     }
  }
 

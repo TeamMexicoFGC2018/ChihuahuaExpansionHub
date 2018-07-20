@@ -47,8 +47,6 @@ public class OmniTripleHerman extends OpMode
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
     private DcMotor centreDrive = null;
-    private DcMotor elevadorDrive = null;
-    private CRServo cajasDrive = null;
     public DcMotor recogedorLeft  = null;
     public DcMotor recogedorRight  = null;
     public DcMotor elevador = null;
@@ -66,8 +64,6 @@ public class OmniTripleHerman extends OpMode
         leftDrive  = hardwareMap.get(DcMotor.class, "leftMotor");
         rightDrive = hardwareMap.get(DcMotor.class, "rightMotor");
         centreDrive = hardwareMap.get(DcMotor.class, "centreMotor");
-        elevadorDrive = hardwareMap.get(DcMotor.class, "motor");
-        cajasDrive = hardwareMap.get(CRServo.class, "servoCajas");
         recogedorRight = hardwareMap.get(DcMotor.class, "RR");
         recogedorLeft  = hardwareMap.get(DcMotor.class, "RL");
         elevador = hardwareMap.get(DcMotor.class,"EL");
@@ -190,9 +186,9 @@ public class OmniTripleHerman extends OpMode
         rightDrive.setPower(rightPower);
         centreDrive.setPower(centrePower);
 
-        cajasDrive.setPower(cajasPower);
 
-        // Show the elapsed game time and wheel power.
+
+         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());
         telemetry.addData("Motors", "left (%f), right (%f)", leftPower, rightPower);
     }
