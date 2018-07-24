@@ -53,10 +53,11 @@ public class OmniTripleHerman extends OpMode
     public DcMotor elevador = null;
     public Servo grip = null;
     public CRServo lift = null;
-    public DcMotor eolico = null;
+    public CRServo eolico = null;
     public Servo puerta = null;
     public DcMotor llantaL = null;
     public DcMotor llantaR = null;
+
 
 
     //Code to run ONCE when the driver hits INIT
@@ -72,7 +73,7 @@ public class OmniTripleHerman extends OpMode
         elevador = hardwareMap.get(DcMotor.class,"EL");
         lift = hardwareMap.get(CRServo.class,"LF");
         grip = hardwareMap.get(Servo.class,"GR");
-        eolico = hardwareMap.get(DcMotor.class, "EO");
+        eolico = hardwareMap.get(CRServo.class, "EO");
         puerta = hardwareMap.get(Servo.class,"PU");
         llantaL= hardwareMap.get(DcMotor.class,"LL");
         llantaR= hardwareMap.get(DcMotor.class,"LR");
