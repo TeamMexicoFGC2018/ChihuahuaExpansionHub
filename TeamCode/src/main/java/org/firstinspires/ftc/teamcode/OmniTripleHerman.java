@@ -29,18 +29,18 @@
 
 package org.firstinspires.ftc.teamcode;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 
 @TeleOp(name="Herman", group="Iterative Opmode")
-
+@Disabled
 public class OmniTripleHerman extends OpMode
 {
     // Declare OpMode members.
@@ -113,7 +113,6 @@ public class OmniTripleHerman extends OpMode
         double leftPower;
         double rightPower;
         double centrePower;
-        double elevadorPower;
 
         // POV Mode uses left stick to go forward, and right stick to turn.
         double drive = -gamepad1.left_stick_y;
@@ -201,7 +200,6 @@ public class OmniTripleHerman extends OpMode
         leftDrive.setPower(leftPower);
         rightDrive.setPower(rightPower);
         centreDrive.setPower(centrePower);
-
 
 
          // Show the elapsed game time and wheel power.
